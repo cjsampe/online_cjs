@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es"  xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Catalogo</title>
+</head>
+<body>
+<h1>Catalogo de productos</h1>
+<!-- Para cada producto de ese objeto quiero nombrar el nombre en una lista es un motor de plantillas -->
+<ul th:each="product : ${products}">
+    <li><p th:text="${product.name}"></p></li>
+</ul>
+
+</body>
+</html>
