@@ -1,0 +1,6 @@
+com\online\online\controller\WebController.class
+com\online\online\domain\Product.class
+com\online\online\OnlineApplication.class
+com\online\online\repository\ProductRepository.class
+com\online\online\service\ProductServiceImpl.class
+com\online\online\service\ProductService.class
