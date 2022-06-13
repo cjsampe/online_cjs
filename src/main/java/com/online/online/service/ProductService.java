@@ -7,6 +7,8 @@ import java.util.List;
 
 @Service
 public interface ProductService {
-
+    /** listar todos los productos **/
     List<Product> findAllProducts();
+    /** listar producto dado un id **/
+    Product findProduct(long id);
 }

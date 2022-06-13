@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 public class Product {
 
     @Id
-    /** autogenera el id**/
+    /** autogenera el id **/
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column

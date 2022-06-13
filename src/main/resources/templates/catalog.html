@@ -5,10 +5,13 @@
     <title>Catalogo</title>
 </head>
 <body>
-<h1>Catalogo de productos</h1>
+<h1>Catálogo de productos</h1>
 <!-- Para cada producto de ese objeto quiero nombrar el nombre en una lista es un motor de plantillas -->
-<ul th:each="product : ${products}">
-    <li><p th:text="${product.name}"></p></li>
+<ul>
+    <li th:each="product : ${products}">
+        <!-- Nos crea una url / product / id producto -->
+        <a th:href="@{'product/' + ${product.id}}"><span th:text="${product.name}"></span></a>
+    </li>
 </ul>
 
 </body>
