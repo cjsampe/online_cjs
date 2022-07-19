@@ -1,3 +1,6 @@
+/**** Actividad Aprendizaje servidor_1 eval. ****/
+/******** Maria Carmen Jimenez Samperiz  ********/
+
 package com.online.online.service;
 
 import com.online.online.domain.Product;
@@ -26,5 +29,11 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findById(id).
                 orElseThrow(ProductNotFoundException::new);
 
+    }
+
+    @Override
+    public List<Product> findByCategory(String categoryName) {
+        List<Product> products = productRepository.findByCategory(categoryName);
+        return products;
     }
 }
