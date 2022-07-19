@@ -1,9 +1,12 @@
+/**** Actividad Aprendizaje servidor_1 eval. ****/
+/******** Maria Carmen Jimenez Samperiz  ********/
 package com.online.online.controller;
 
 
 import com.online.online.domain.Product;
 import com.online.online.exception.ProductNotFoundException;
 import com.online.online.service.ProductService;
+import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +29,9 @@ public class WebController {
     /** son puntos de entrada **/
     @RequestMapping(value = "/")
     public String index(Model model){
+        List<Product> allProducts = productService.findAllProducts();
+        /** listamos ya productos en el index**/
+        model.addAttribute("products", allProducts);
         return "index";
     }
 
@@ -45,13 +51,26 @@ public class WebController {
         return "product";
     }
 
+    /** busqueda por categoria **/
+    @RequestMapping(value = "/category/{categoryName}")
+    public String productsByCategory(Model model, @PathVariable String categoryName){
+        List<Product> categoryProduct = productService.findByCategory(categoryName);
+        model.addAttribute("products", categoryProduct);
+        /** para proporcionar informacion de en que categoria nos encontramos*/
+        model.addAttribute("category" , categoryName);
+        model.addAttribute("categoryList", true);
+        model.addAttribute("category", categoryName);
+        return "index";
+    }
+
+    /** creamos un gestor de excepciones de productos **/
     @ExceptionHandler(ProductNotFoundException.class)
     public String handleException(HttpServletRequest request, ProductNotFoundException exception){
         return "error_product";
     }
 
 
-    /** creamos un gestor de excepciones **/
+    /** creamos un gestor de excepciones generales **/
     @ExceptionHandler
     public String handleException(HttpServletRequest request, Exception exception){
 
