@@ -27,7 +27,7 @@ public class WebController {
     private ProductService productService;
 
     /** son puntos de entrada **/
-    @RequestMapping(value = "/")
+    @GetMapping(value = "/")
     public String index(Model model){
         List<Product> allProducts = productService.findAllProducts();
         /** listamos ya productos en el index**/
@@ -35,7 +35,7 @@ public class WebController {
         return "index";
     }
 
-    @RequestMapping(value = "/catalog")
+    @GetMapping(value = "/catalog")
     public String catalog(Model model){
         /**lista todos los productos de la base de datos**/
         List<Product> allProducts = productService.findAllProducts();
@@ -44,7 +44,7 @@ public class WebController {
         return "catalog";
     }
 
-    @RequestMapping(value = "/product/{id}")
+    @GetMapping(value = "/product/{id}")
     public String product(Model model, @PathVariable long id) throws ProductNotFoundException {
         Product product = productService.findProduct(id);
         model.addAttribute("product", product);
@@ -52,7 +52,7 @@ public class WebController {
     }
 
     /** busqueda por categoria **/
-    @RequestMapping(value = "/category/{categoryName}")
+    @GetMapping(value = "/category/{categoryName}")
     public String productsByCategory(Model model, @PathVariable String categoryName){
         List<Product> categoryProduct = productService.findByCategory(categoryName);
         model.addAttribute("products", categoryProduct);
