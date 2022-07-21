@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 /**se debe importar esta, otra no valdra **/
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data /**se autogeneran los getters y setters **/
 
@@ -32,6 +33,9 @@ public class Product {
     private String category;
     @Column
     private float price;
-    @Column
+    @Column (name ="creation_date")
     private LocalDateTime creationDate;
+
+    @OneToMany(mappedBy = "product")
+    private List<Order> orders;
 }
