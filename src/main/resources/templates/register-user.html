@@ -132,7 +132,13 @@ input[type=text], select, textarea{
    <div class="row">
     <input type="submit" value="Crear cuenta"/>
    </div>
-  </form>
+  </form><br><br>
+  <!--Mensaje de usuario creado -->
+  <div th:if="${message}">
+   <div class="alert alert-success" role="alert">
+    <p th:text="${message}"></p>
+  </div>
+ </div>
  </div>
 </main>
 

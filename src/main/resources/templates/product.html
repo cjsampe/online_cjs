@@ -1,12 +1,10 @@
 <!-- Actividad Aprendizaje servidor_1 eval. Maria Carmen Jimenez Samperiz -->
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Online_cjs</title>
-</head>
-<body>
-<h1 th:text ="${product.name}"></h1>
-<p th:text="${product.description}"></p>
-</body>
-</html>
+<span th:replace="fragments/header.html" xmlns:th="http://www.w3.org/1999/xhtml"></span>
+
+        <main xmlns:th="http://www.w3.org/1999/xhtml">
+        <h1 th:text ="${product.name}"></h1>
+        <p th:text="${product.description}"></p>
+        <a class="btn btn-sm btn-outline-primary" th:href="@{'/add-order/' + ${product.id}}">Comprar</a>
+        </main>
+
+<span th:replace="fragments/footer.html" xmlns:th="http://www.w3.org/1999/xhtml"></span>

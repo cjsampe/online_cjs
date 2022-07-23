@@ -5,4 +5,5 @@ import com.online.online.domain.User;
 public interface UserService {
 
     User addUser(User user);
+    User findUser(long id);
 }
