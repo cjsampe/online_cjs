@@ -19,7 +19,7 @@ public class UserController {
     public String addUser(@ModelAttribute User user, Model model ){
         /**Dar de alta el usuario rellenado por el ususario **/
         userService.addUser(user);
-        /** puedo llevarlo a una página de usuario creado correctamente**/
+        model.addAttribute("message", "Usuario registrado correctamente");
         return "register-user";
     }
 

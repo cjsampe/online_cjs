@@ -1,0 +1,10 @@
+<span th:replace="fragments/header.html" xmlns:th="http://www.w3.org/1999/xhtml"></span>
+<main xmlns:th="http://www.w3.org/1999/xhtml">
+    <p>Información de tus pedidos</p>
+    <ul>
+        <li th:each="order : ${orders}">
+            <a th:href="@{'/order/' + ${order.id}}"><span th:text="${order.product.name}"></span></a>
+        </li>
+    </ul>
+</main>
+<span th:replace="fragments/footer.html" xmlns:th="http://www.w3.org/1999/xhtml"></span>

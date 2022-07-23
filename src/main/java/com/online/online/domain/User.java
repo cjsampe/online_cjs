@@ -4,6 +4,7 @@ package com.online.online.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -27,6 +28,8 @@ public class User {
     @Column
     private String email;
     @Column(name ="birth_date")
+    /**anotacion de patron para que reconozca el formato**/
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
 
     @OneToMany(mappedBy = "user")
